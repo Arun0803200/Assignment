@@ -1,0 +1,1407 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "descriptuon": "sample server",
+        "version": "1.0.0",
+        "title": "Assignment Test",
+        "contact": {
+            "email": "arun.ang.js@gmail.com"
+        }
+    },
+    "host": "localhost:8000",
+    "basePath": "/api",
+    "tags": [
+        {
+            "name": "Login",
+            "description": "Login apis"
+        },
+        {
+            "name": "Feed",
+            "description": "Feed Master"
+        },
+        {
+            "name": "Admin",
+            "description": "Admin Master"
+        },
+        {
+            "name": "AdminFeed",
+            "description": "Admin feed master"
+        },
+        {
+            "name": "User",
+            "description": "User feed master"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/feed": {
+            "post": {
+                "tags": ["Feed"],
+                "Summary": "Create a Feed data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/createFeed"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Unable to create the Feed !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully created the Feed !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Feed"],
+                "Summary": "Create a feed data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully got the feed list !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin": {
+            "post": {
+                "tags": ["Admin"],
+                "Summary": "Create a Admin data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/createAdmin"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "The password must contain a lowercase letter, an uppercase letter, a number, a special character, minimum 8 characters and maximum 20 character !! \"or\" This Email already exists. Try giving another email !! \"or\" Unable to create the Admin !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully created the Admin !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Admin"],
+                "Summary": "Create a Admin data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully got the admin list !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/single-admin": {
+            "post": {
+                "tags": ["User"],
+                "Summary": "Create a user data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/createAdmin"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "The password must contain a lowercase letter, an uppercase letter, a number, a special character, minimum 8 characters and maximum 20 character !! \"or\" This Email already exists. Try giving another email !! \"or\" Unable to create the user !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully created the user !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["User"],
+                "Summary": "Create a user data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully got the user list !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/super-login": {
+            "post": {
+                "tags": ["Login"],
+                "Summary": "Create a Feed data",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/login"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Unable to create the Feed !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully created the Feed !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/single-admin/admin-login": {
+            "post": {
+                "tags": ["Login"],
+                "Summary": "Create a Feed data",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/login"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid username !! \" or \" Invalid password !! \" or \" Invalid login !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully create the Token"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "post": {
+                "tags": ["Login"],
+                "Summary": "User Login",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/login"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid username !! \" or \" Invalid password !! \" or \" Invalid login !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully create the Token"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["User-Detail"],
+                "Summary": "Get list of admin Feed",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid user id !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully get the user feed list !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/{id}": {
+            "put": {
+                "tags": ["Admin"],
+                "Summary": "Update a admin data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/update"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid admin id !! \" or \" Unable to update the admin data !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully update the admin data !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Admin"],
+                "Summary": "Get a detail of admin data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid admin id !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully got the detail of a admin !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Admin"],
+                "Summary": "Delete an admin data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid admin id !! \" or \" Unable to delet an admin !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully delete an admin !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/single-admin/{id}": {
+            "put": {
+                "tags": ["User"],
+                "Summary": "Update a user data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/update"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid user id !! \" or \" Unable to update the user data !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully update the user data !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["User"],
+                "Summary": "Get a detail of user data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid user id !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully got the detail of a user !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["User"],
+                "Summary": "Delete an user data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid user id !! \" or \" Unable to delet an user !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully delete an user !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/feed/{id}": {
+            "put": {
+                "tags": ["Feed"],
+                "Summary": "Update a feed data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/updateFeed"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid feed id !! \" or \" Unable to update the feed data !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully update the feed data !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Feed"],
+                "Summary": "Get a detail of feed data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid feed id !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully got the detail of a feed !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Feed"],
+                "Summary": "Delete an feed data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid feed id !! \" or \" Unable to delet an feed !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully delete an admin !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin-feed": {
+            "post": {
+                "tags": ["AdminFeed"],
+                "Summary": "Create a Feed data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/adminFeed"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Unable to create the Feed !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully created the Feed !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user-feed": {
+            "post": {
+                "tags": ["UserFeed"],
+                "Summary": "Create a Feed data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Unable to create the Feed !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully created the Feed !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin-feed/{id}": {
+            
+            "get": {
+                "tags": ["AdminFeed"],
+                "Summary": "Get list of admin Feed",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid admin id !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully get the admin feed list !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user-feed/{id}": {
+            "get": {
+                "tags": ["UserFeed"],
+                "Summary": "Get list of admin Feed",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Error Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "0"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Invalid user id !!"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success Message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully get the user feed list !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/log/file-list": {
+            "get": {
+                "tags": ["Log-List"],
+                "Summary": "Create a user data",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "The authorization token",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "integer",
+                                    "default": "1"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "default": "Successfully got the user list !!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "createFeed": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "createAdmin": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "number",
+                    "format": "int-32"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "adminFeed": {
+            "type": "object",
+            "properties": {
+                "feedId": {
+                    "type": "array",
+                    "items": {
+                        "type": "number",
+                        "format": "int-32"
+                    }
+                },
+                "adminId": {
+                    "type": "number",
+                    "format": "int-32"
+                }
+            }
+        },
+        "user": {
+            "type": "object",
+            "properties": {
+                "feedId": {
+                    "type": "array",
+                    "items": {
+                        "type": "number",
+                        "format": "int-32"
+                    }
+                },
+                "userId": {
+                    "type": "number",
+                    "format": "int-32"
+                }
+            }
+        },
+        "login": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "update": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "integer",
+                    "format": "int-32"
+                }
+            }
+        },
+        "updateFeed": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
