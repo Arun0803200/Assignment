@@ -11,7 +11,7 @@ Table of Contents
 6. File System and Excel Logging
 
 Introduction:-
-The Project Name is a web application that serves as a user management system with hierarchical access control. It enables Super Admin, Admin, and User roles, each having specific privileges and restrictions.
+The Project is a web application that serves as a user management system with hierarchical access control. It enables Super Admin, Admin, and User roles, each having specific privileges and restrictions.
 
 Features:-
 1. Super Admin Role: The Super Admin has access to all operations on both Admin and User APIs. They can create feeds and assign them to Admins and Users.
