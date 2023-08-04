@@ -1,0 +1,43 @@
+{
+   "name": "assignment",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "type": "commonjs",
+   "devDependencies": {
+      "@types/node": "^16.11.10",
+      "nodemon": "^2.0.21",
+      "ts-node": "^7.0.1",
+      "typescript": "^4.5.2"
+   },
+   "dependencies": {
+      "bcrypt": "^5.1.0",
+      "body-parser": "^1.20.2",
+      "class-transformer": "^0.3.1",
+      "class-validator": "^0.13.2",
+      "cors": "^2.8.5",
+      "exceljs": "^4.3.0",
+      "express": "^4.18.2",
+      "fast-glob": "^3.2.12",
+      "jsonwebtoken": "^9.0.0",
+      "microframework": "^0.6.4",
+      "moment": "^2.29.4",
+      "momentum": "^4.0.0",
+      "mysql": "^2.14.1",
+      "node-cron": "^3.0.2",
+      "reflect-metadata": "^0.1.13",
+      "routing-controllers": "^0.9.0",
+      "swagger-ui-express": "^4.6.2",
+      "typedi": "^0.8.0",
+      "typeorm": "^0.2.45",
+      "typeorm-typedi-extensions": "^0.2.1",
+      "xlsx-to-json": "^0.3.0"
+   },
+   "scripts": {
+      "start": "npm run create-index && nodemon src/app.ts --watch",
+      "index-controller": "ts-node --pretty Utils/controller.index.ts",
+      "index-entity": "ts-node --pretty Utils/entity.index.ts",
+      "index-migration": "ts-node --pretty Utils/migration.index.ts",
+      "create-index": "npm run index-controller && npm run index-entity && npm run index-migration",
+      "typeorm": "typeorm-ts-node-commonjs"
+   }
+}
